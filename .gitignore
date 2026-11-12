@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+ai_segmentation_local/.deps/
+ai_segmentation_local/models/

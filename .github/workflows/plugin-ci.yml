@@ -1,0 +1,27 @@
+name: plugin-ci
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [vibe/*]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ai_segmentation_local
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: pip install --quiet pyflakes numpy opencv-python-headless
+      - name: Compile all plugin files
+        run: python -m compileall -q .
+      - name: Static analysis (pyflakes)
+        run: python -m pyflakes __init__.py plugin.py core ui tests
+      - name: Unit test polygonization
+        run: python tests/test_polygonize.py

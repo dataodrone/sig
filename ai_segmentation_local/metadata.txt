@@ -1,0 +1,24 @@
+[general]
+name=AI Segmentation Local
+description=Local and free AI segmentation in QGIS: draw a zone and name an object (buildings, trees, solar panels...) to get every match as vector polygons, or click an object to get its outline. Runs 100% on your computer with open models: no account, no API key, no subscription, works offline after the first model download.
+qgisMinimumVersion=3.22
+qgisMaximumVersion=4.99
+supportsQt6=True
+version=1.0.0
+author=AI Segmentation Local contributors
+license=MIT
+experimental=False
+
+about=
+    AI Segmentation Local is a fully local, no-cost alternative for object segmentation in QGIS.
+
+    - Automatic mode: draw a zone on your imagery, type what you are looking for ("buildings", "trees", "solar panels") and get every match back as vector polygons with a confidence value.
+    - Semi-auto mode: click one object on the map, optionally add negative points (right click), and get a clean outline.
+
+    Everything runs on your own machine with open-weight models (SAM + CLIP), downloaded once on first run. No account, no API key, no subscription, no credits, and nothing is ever sent over the network. Works on CPU, no GPU needed.
+
+    Works on any raster layer: GeoTIFF, JPG, PNG, and online basemaps (WMS, XYZ tiles).
+
+changelog=
+    1.0.0
+    - First release: automatic detection in a drawn zone (SAM masks + CLIP label matching) and click-to-outline, fully local and free.
